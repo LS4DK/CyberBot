@@ -15,6 +15,7 @@ public class Chatbot
 
     //Improved Chatbot responses
     // Add comment
+    // Changed the text
     public static void Respond(string input, string name)
     {
         input = input.ToLower();
