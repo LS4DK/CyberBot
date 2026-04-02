@@ -13,6 +13,7 @@ public class Chatbot
         Console.WriteLine();
     }
 
+    //Improved Chatbot responses
     public static void Respond(string input, string name)
     {
         input = input.ToLower();
