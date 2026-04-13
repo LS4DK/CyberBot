@@ -2,24 +2,37 @@
 
 AudioPlayer.PlayGreeting();
 
-// Title
-Console.ForegroundColor = ConsoleColor.Cyan;
+// 🔥 Creative ASCII
+Console.ForegroundColor = ConsoleColor.DarkMagenta;
 Console.WriteLine(@"
-  _____       _               
- / ____|     | |              
-| |     _   _| |__   ___ _ __ 
-| |    | | | | '_ \ / _ \ '__|
-| |____| |_| | |_) |  __/ |   
- \_____|\__, |_.__/ \___|_|   
-         __/ |                
-        |___/                 
+   ██████╗██╗   ██╗██████╗ ███████╗██████╗ 
+  ██╔════╝╚██╗ ██╔╝██╔══██╗██╔════╝██╔══██╗
+  ██║      ╚████╔╝ ██████╔╝█████╗  ██████╔╝
+  ██║       ╚██╔╝  ██╔══██╗██╔══╝  ██╔══██╗
+  ╚██████╗   ██║   ██████╔╝███████╗██║  ██║
+   ╚═════╝   ╚═╝   ╚═════╝ ╚══════╝╚═╝  ╚═╝
+
+        CYBER SECURITY BOT
 ");
 Console.ResetColor();
 
-Console.WriteLine("Welcome to the Cybersecurity Awareness Bot!\n");
+Console.ForegroundColor = ConsoleColor.Cyan;
+Console.WriteLine("\nWELCOME TO THE CYBER SECURITY AWARENESS BOT\n");
+Console.ResetColor();
 
-// Get name
-Console.Write("Enter your name: ");
+Console.WriteLine("Topics you can ask about:");
+Console.WriteLine("- Passwords");
+Console.WriteLine("- Phishing");
+Console.WriteLine("- Malware");
+Console.WriteLine("- VPN");
+Console.WriteLine("- 2FA");
+Console.WriteLine("- Firewalls");
+Console.WriteLine("- Encryption");
+Console.WriteLine("- Scams");
+Console.WriteLine("- Privacy");
+
+// Name
+Console.Write("\nEnter your name: ");
 string name = Console.ReadLine();
 
 while (string.IsNullOrWhiteSpace(name))
@@ -28,12 +41,37 @@ while (string.IsNullOrWhiteSpace(name))
     name = Console.ReadLine();
 }
 
-Console.WriteLine($"\nWelcome, {name}! Ask me anything about cybersecurity.");
+// Personality
+Console.WriteLine("\nChoose chatbot personality:");
+Console.WriteLine("1. Friendly");
+Console.WriteLine("2. Professional");
+Console.WriteLine("3. Futuristic AI");
+Console.WriteLine("4. Casual");
+
+Console.Write("Enter choice (1-4): ");
+string choice = Console.ReadLine();
+
+string personality = "friendly";
+
+switch (choice)
+{
+    case "1": personality = "friendly"; break;
+    case "2": personality = "professional"; break;
+    case "3": personality = "ai"; break;
+    case "4": personality = "casual"; break;
+    default:
+        Console.WriteLine("Invalid choice, defaulting to Friendly.");
+        break;
+}
+
+Console.ForegroundColor = ConsoleColor.Green;
+Console.WriteLine($"\nWelcome, {name}! Ask me anything");
+Console.ResetColor();
 
 // Chat loop
 while (true)
 {
-    Console.Write("\nAsk a question (type 'exit' to quit): ");
+    Console.Write("\nYou: ");
     string input = Console.ReadLine();
 
     if (string.IsNullOrWhiteSpace(input))
@@ -44,23 +82,22 @@ while (true)
 
     if (input.ToLower() == "exit")
     {
-        Console.WriteLine("Goodbye! Stay safe online 👋");
+        Console.WriteLine("Goodbye! Stay safe online");
         break;
     }
 
-    // Typing effect for thinking
     Console.ForegroundColor = ConsoleColor.Yellow;
     TypeText("Bot is thinking...");
     System.Threading.Thread.Sleep(300);
     Console.ResetColor();
 
-    Console.ForegroundColor = ConsoleColor.DarkMagenta; // dark purple
-    Chatbot.Respond(input, name);
+    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+    Console.Write("Bot: ");
+    Chatbot.Respond(input, name, personality);
     Console.ResetColor();
 }
 
-
-// Typing effect method
+// Typing effect
 void TypeText(string text)
 {
     foreach (char c in text)
