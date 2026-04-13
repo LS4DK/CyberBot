@@ -1,3 +1,4 @@
+<img width="1366" height="720" alt="Prog CyberBot CI " src="https://github.com/user-attachments/assets/504d305b-2212-431c-8742-fb749a839e9f" />
 # CyberSecurity Awareness Bot
 
 ## Overview
